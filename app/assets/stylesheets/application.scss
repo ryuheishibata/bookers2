@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+    @import "bootstrap-sprockets";
+    @import "bootstrap";   
+
+.bookers{
+	color:white;
+}
+
+.btn btn-primary1{
+	color:green;
+}

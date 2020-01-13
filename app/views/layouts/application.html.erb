@@ -10,6 +10,57 @@
   </head>
 
   <body>
+    <div id="slidemenu">
+  <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+    <% if user_signed_in? %>
+         <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <div class="bookers"><span><h4>Bookers</h4></span></div>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+      <li class="">
+        <%= link_to ' Home', user_path(current_user),class:"glyphicon glyphicon-home home" %>
+      </li>
+      <li class="">
+        <%= link_to ' Users', "http://localhost:3000/users",class:"glyphicon glyphicon-user users" %>
+      </li>
+      <li class="">
+        <%= link_to ' Books', "http://localhost:3000/books",class:"glyphicon glyphicon-book books" %>
+      </li>
+      <li class="">
+        <%= link_to " logout", destroy_user_session_path, method: :delete ,class:"glyphicon glyphicon-log-out logout"%>
+      </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+    <% else %>
+
+
+     <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <div class="bookers"><span><h4>Bookers</h4></span></div>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a class="glyphicon glyphicon-home home" href="/"> Home</a></li>
+          <li><a class="glyphicon glyphicon-link about" href="/home/about"> About</a></li>
+          <li>
+            <%= link_to 'Sign up',new_user_registration_path,class: "glyphicon glyphicon-edit sign_up" %></li>
+          <li><a class="glyphicon glyphicon-log-in sign_in" href="/users/sign_in"> login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <% end %>
+  </ul>
+</div>
+
+
     <%= yield %>
   </body>
 </html>
